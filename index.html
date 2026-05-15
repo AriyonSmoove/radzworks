@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RADZ WORKS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:#000;
+color:white;
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+.logo img{
+height:55px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.85)),
+url('hero-bg.png') center/cover no-repeat;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-logo{
+width:500px;
+max-width:90%;
+margin-bottom:25px;
+filter:drop-shadow(0 0 25px rgba(212,175,55,.4));
+}
+
+.hero p{
+color:#ccc;
+letter-spacing:2px;
+margin-bottom:30px;
+}
+
+.hero button{
+padding:14px 38px;
+border:1px solid #d4af37;
+background:transparent;
+color:#d4af37;
+border-radius:40px;
+cursor:pointer;
+font-weight:700;
+transition:.4s;
+}
+
+.hero button:hover{
+background:#d4af37;
+color:black;
+box-shadow:0 0 25px #d4af37;
+}
+
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#d4af37;
+color:black;
+border:none;
+padding:12px 18px;
+border-radius:40px;
+font-weight:700;
+cursor:pointer;
+z-index:999;
+}
+
+section{
+padding:100px 8%;
+}
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h2{
+font-size:2.7rem;
+color:#d4af37;
+font-family:'Cinzel',serif;
+}
+
+.gallery-scroll{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding-bottom:20px;
+}
+
+.card{
+min-width:300px;
+height:420px;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+flex-shrink:0;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
+}
+
+.overlay h3{
+position:absolute;
+bottom:20px;
+left:20px;
+}
+
+.price-box{
+max-width:700px;
+margin:auto;
+}
+
+.price-box img{
+width:100%;
+border-radius:20px;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact h3{
+font-size:2rem;
+color:#d4af37;
+margin-bottom:20px;
+font-family:'Cinzel',serif;
+}
+
+.contact p{
+margin:10px 0;
+}
+
+.contact a{
+color:#d4af37;
+text-decoration:none;
+font-weight:600;
+}
+
+footer{
+padding:30px;
+text-align:center;
+color:#777;
+}
+
+@media(max-width:768px){
+
+.hero-logo{
+width:300px;
+}
+
+.card{
+min-width:240px;
+height:340px;
+}
+
+nav ul{
+gap:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" autoplay loop muted>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+🎵 Music
+</button>
+
+<nav>
+
+<div class="logo">
+<img src="logo.png">
+</div>
+
+<ul>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#prices">Prices</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<img src="logo.png" class="hero-logo">
+
+<p>LUXURY BRAIDS • PRECISION CUTS • PREMIUM EXPERIENCE</p>
+
+<button onclick="document.getElementById('gallery').scrollIntoView()">
+VIEW STYLES
+</button>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<div class="title">
+<h2>HAIRCUT GALLERY</h2>
+</div>
+
+<div class="gallery-scroll">
+
+<div class="card"><img src="hair1.jpg"><div class="overlay"><h3>Style 01</h3></div></div>
+<div class="card"><img src="hair2.jpg"><div class="overlay"><h3>Style 02</h3></div></div>
+<div class="card"><img src="hair3.jpg"><div class="overlay"><h3>Style 03</h3></div></div>
+<div class="card"><img src="hair4.jpg"><div class="overlay"><h3>Style 04</h3></div></div>
+<div class="card"><img src="hair5.jpg"><div class="overlay"><h3>Style 05</h3></div></div>
+<div class="card"><img src="hair6.jpg"><div class="overlay"><h3>Style 06</h3></div></div>
+<div class="card"><img src="hair7.jpg"><div class="overlay"><h3>Style 07</h3></div></div>
+<div class="card"><img src="hair8.jpg"><div class="overlay"><h3>Style 08</h3></div></div>
+<div class="card"><img src="hair9.jpg"><div class="overlay"><h3>Style 09</h3></div></div>
+<div class="card"><img src="hair10.jpg"><div class="overlay"><h3>Style 10</h3></div></div>
+<div class="card"><img src="hair11.jpg"><div class="overlay"><h3>Style 11</h3></div></div>
+<div class="card"><img src="hair12.jpg"><div class="overlay"><h3>Style 12</h3></div></div>
+<div class="card"><img src="hair13.jpg"><div class="overlay"><h3>Style 13</h3></div></div>
+<div class="card"><img src="hair14.jpg"><div class="overlay"><h3>Style 14</h3></div></div>
+
+</div>
+
+</section>
+
+<section id="prices">
+
+<div class="title">
+<h2>PRICE LIST</h2>
+</div>
+
+<div class="price-box">
+<img src="prices.jpg">
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h3>BOOK YOUR STYLE</h3>
+
+<p>
+Instagram:
+<a href="https://www.instagram.com/ssobradz/" target="_blank">@ssobradz</a>
+</p>
+
+<p>
+Facebook:
+<a href="https://www.facebook.com/ra.dz.in.2024" target="_blank">RADZ WORKS</a>
+</p>
+
+<p>Premium Braids & Barber Services</p>
+
+</section>
+
+<footer>
+© 2026 RADZ WORKS • ALL RIGHTS RESERVED
+</footer>
+
+<script>
+
+const music = document.getElementById("bgMusic");
+
+window.addEventListener("load", () => {
+
+music.play();
+
+setTimeout(() => {
+music.muted = false;
+}, 1000);
+
+});
+
+document.addEventListener("click", () => {
+
+music.muted = false;
+music.play();
+
+}, { once:true });
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+}
+else{
+music.pause();
+}
+
+}
+
+</script>
+
+</body>
+</html>
