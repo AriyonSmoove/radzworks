@@ -158,6 +158,7 @@ border:1px solid rgba(255,255,255,.05);
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 }
 
 .overlay{
@@ -212,16 +213,26 @@ color:#777;
 @media(max-width:768px){
 
 .hero-logo{
-width:300px;
+width:280px;
 }
 
 .card{
-min-width:240px;
-height:340px;
+min-width:230px;
+height:320px;
 }
 
 nav ul{
 gap:15px;
+font-size:13px;
+}
+
+.gallery-scroll{
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+
+.gallery-scroll::-webkit-scrollbar{
+display:none;
 }
 
 }
@@ -240,7 +251,6 @@ gap:15px;
 </button>
 
 <nav>
-
 <div class="logo">
 <img src="logo.png">
 </div>
@@ -250,33 +260,20 @@ gap:15px;
 <li><a href="#prices">Prices</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-
 </nav>
 
 <section class="hero">
-
 <div class="hero-content">
-
 <img src="logo.png" class="hero-logo">
-
 <p>LUXURY BRAIDS • PRECISION CUTS • PREMIUM EXPERIENCE</p>
-
-<button onclick="document.getElementById('gallery').scrollIntoView()">
-VIEW STYLES
-</button>
-
+<button onclick="document.getElementById('gallery').scrollIntoView()">VIEW STYLES</button>
 </div>
-
 </section>
 
 <section id="gallery">
-
-<div class="title">
-<h2>HAIRCUT GALLERY</h2>
-</div>
+<div class="title"><h2>HAIRCUT GALLERY</h2></div>
 
 <div class="gallery-scroll">
-
 <div class="card"><img src="hair1.jpg"><div class="overlay"><h3>Style 01</h3></div></div>
 <div class="card"><img src="hair2.jpg"><div class="overlay"><h3>Style 02</h3></div></div>
 <div class="card"><img src="hair3.jpg"><div class="overlay"><h3>Style 03</h3></div></div>
@@ -291,77 +288,28 @@ VIEW STYLES
 <div class="card"><img src="hair12.jpg"><div class="overlay"><h3>Style 12</h3></div></div>
 <div class="card"><img src="hair13.jpg"><div class="overlay"><h3>Style 13</h3></div></div>
 <div class="card"><img src="hair14.jpg"><div class="overlay"><h3>Style 14</h3></div></div>
-
 </div>
-
 </section>
 
 <section id="prices">
-
-<div class="title">
-<h2>PRICE LIST</h2>
-</div>
-
-<div class="price-box">
-<img src="prices.jpg">
-</div>
-
+<div class="title"><h2>PRICE LIST</h2></div>
+<div class="price-box"><img src="prices.jpg"></div>
 </section>
 
 <section id="contact" class="contact">
-
 <h3>BOOK YOUR STYLE</h3>
-
-<p>
-Instagram:
-<a href="https://www.instagram.com/ssobradz/" target="_blank">@ssobradz</a>
-</p>
-
-<p>
-Facebook:
-<a href="https://www.facebook.com/ra.dz.in.2024" target="_blank">RADZ WORKS</a>
-</p>
-
+<p>Instagram: <a href="https://www.instagram.com/ssobradz/">@ssobradz</a></p>
+<p>Facebook: <a href="https://www.facebook.com/ra.dz.in.2024">RADZ WORKS</a></p>
 <p>Premium Braids & Barber Services</p>
-
 </section>
 
-<footer>
-© 2026 RADZ WORKS • ALL RIGHTS RESERVED
-</footer>
+<footer>© 2026 RADZ WORKS • ALL RIGHTS RESERVED</footer>
 
 <script>
-
 const music = document.getElementById("bgMusic");
-
-window.addEventListener("load", () => {
-
-music.play();
-
-setTimeout(() => {
-music.muted = false;
-}, 1000);
-
-});
-
-document.addEventListener("click", () => {
-
-music.muted = false;
-music.play();
-
-}, { once:true });
-
-function toggleMusic(){
-
-if(music.paused){
-music.play();
-}
-else{
-music.pause();
-}
-
-}
-
+window.addEventListener("load", ()=>{ music.play(); setTimeout(()=>music.muted=false,1000); });
+document.addEventListener("click", ()=>{ music.muted=false; music.play(); }, {once:true});
+function toggleMusic(){ music.paused ? music.play() : music.pause(); }
 </script>
 
 </body>
