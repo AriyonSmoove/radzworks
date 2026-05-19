@@ -79,14 +79,16 @@ align-items:center;
 transition:1s;
 }
 
+/* PLAIN INTRO IMAGE */
+
 #introImg{
 position:absolute;
-width:110%;
-height:110%;
+width:100%;
+height:100%;
 object-fit:cover;
-transition:transform 0.15s linear;
-will-change:transform;
 }
+
+/* INTRO CONTENT */
 
 .intro-overlay{
 position:relative;
@@ -214,14 +216,15 @@ font-family:'Cinzel',serif;
 
 .gallery-scroll{
 display:flex;
-gap:20px;
+gap:14px;
 overflow-x:auto;
-padding-bottom:20px;
+padding-bottom:15px;
 scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
 }
 
 .gallery-scroll::-webkit-scrollbar{
-height:8px;
+height:6px;
 }
 
 .gallery-scroll::-webkit-scrollbar-thumb{
@@ -230,9 +233,9 @@ border-radius:20px;
 }
 
 .card{
-min-width:300px;
-height:420px;
-border-radius:20px;
+min-width:260px;
+height:340px;
+border-radius:18px;
 overflow:hidden;
 position:relative;
 flex-shrink:0;
@@ -251,14 +254,16 @@ box-shadow:0 0 25px rgba(212,175,55,.15);
 width:100%;
 height:100%;
 object-fit:cover;
-object-position:center;
+object-position:center top;
 display:block;
 }
+
+/* OVERLAY */
 
 .overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
+background:linear-gradient(to top, rgba(0,0,0,.7), transparent);
 }
 
 .overlay h3{
@@ -346,14 +351,12 @@ padding-bottom:10px;
 }
 
 .card{
-min-width:190px;
-height:250px;
-border-radius:16px;
+min-width:180px;
+height:240px;
+border-radius:14px;
 }
 
 .card img{
-width:100%;
-height:100%;
 object-fit:cover;
 object-position:center top;
 }
@@ -397,17 +400,13 @@ PRESS TO ENTER
 <!-- MUSIC -->
 
 <audio id="bgMusic" loop>
-
 <source src="music.mp3" type="audio/mpeg">
-
 </audio>
 
 <!-- MUSIC BUTTON -->
 
 <button class="music-btn" onclick="toggleMusic()">
-
 🎵 Music
-
 </button>
 
 <!-- NAVBAR -->
@@ -415,17 +414,13 @@ PRESS TO ENTER
 <nav>
 
 <div class="logo">
-
 <img src="logo.png">
-
 </div>
 
 <ul>
-
 <li><a href="#gallery">Gallery</a></li>
 <li><a href="#prices">Prices</a></li>
 <li><a href="#contact">Contact</a></li>
-
 </ul>
 
 </nav>
@@ -443,9 +438,7 @@ LUXURY BRAIDS • PRECISION CUTS • PREMIUM EXPERIENCE
 </p>
 
 <button onclick="document.getElementById('gallery').scrollIntoView()">
-
 VIEW STYLES
-
 </button>
 
 </div>
@@ -457,9 +450,7 @@ VIEW STYLES
 <section id="gallery">
 
 <div class="title">
-
 <h2>HAIRCUT GALLERY</h2>
-
 </div>
 
 <div class="gallery-scroll">
@@ -501,15 +492,11 @@ VIEW STYLES
 <section id="prices">
 
 <div class="title">
-
 <h2>PRICE LIST</h2>
-
 </div>
 
 <div class="price-box">
-
 <img src="prices.jpg">
-
 </div>
 
 </section>
@@ -521,41 +508,27 @@ VIEW STYLES
 <h3>BOOK YOUR STYLE</h3>
 
 <p>
-
 Instagram:
-
 <a href="https://www.instagram.com/ssobradz/" target="_blank">
-
 @ssobradz
-
 </a>
-
 </p>
 
 <p>
-
 Facebook:
-
 <a href="https://www.facebook.com/ra.dz.in.2024" target="_blank">
-
 RADZ WORKS
-
 </a>
-
 </p>
 
 <p>
-
 Premium Braids & Barber Services
-
 </p>
 
 <a href="https://www.facebook.com/profile.php?id=61561647065677"
 target="_blank"
 class="book-btn">
-
 BOOK NOW
-
 </a>
 
 </section>
@@ -563,9 +536,7 @@ BOOK NOW
 <!-- FOOTER -->
 
 <footer>
-
 © 2026 RADZ WORKS • ALL RIGHTS RESERVED
-
 </footer>
 
 <!-- SCRIPT -->
@@ -577,8 +548,6 @@ const music = document.getElementById("bgMusic");
 const enterBtn = document.getElementById("enterBtn");
 
 const intro = document.getElementById("intro");
-
-const introImg = document.getElementById("introImg");
 
 /* ENTER WEBSITE */
 
@@ -614,32 +583,6 @@ music.pause();
 }
 
 }
-
-/* PHONE GYRO EFFECT */
-
-window.addEventListener("deviceorientation", (event) => {
-
-let x = event.gamma;
-
-let y = event.beta;
-
-introImg.style.transform =
-`translate(${x * 1.5}px, ${y * 1.5}px) scale(1.08)`;
-
-});
-
-/* DESKTOP MOUSE EFFECT */
-
-document.addEventListener("mousemove", (e) => {
-
-const x = (window.innerWidth / 2 - e.clientX) / 40;
-
-const y = (window.innerHeight / 2 - e.clientY) / 40;
-
-introImg.style.transform =
-`translate(${x}px, ${y}px) scale(1.08)`;
-
-});
 
 </script>
 
